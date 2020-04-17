@@ -61,7 +61,7 @@ class Suggested extends Component {
         }
         else
         {
-            return ((<div>Loading suggestions for you ...</div>))
+            return ((<div>Loading Our suggestions ...</div>))
         }
     }
 }

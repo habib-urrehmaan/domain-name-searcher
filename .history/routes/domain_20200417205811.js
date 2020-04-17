@@ -37,9 +37,9 @@ router.get('/suggested', function(req, res, next) {
         if (error)
           console.log(error);
         let result = JSON.parse(body).domains.filter(function(itm){
-          return (itm.available)==true;
+          return empIds.indexOf(itm.empid) > -1;
         });
-        res.json({status:200,data:JSON.stringify(result)})
+        res.json({status:200,data:body})
       });
 
     })

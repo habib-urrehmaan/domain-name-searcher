@@ -28,18 +28,16 @@ router.get('/suggested', function(req, res, next) {
       request({
         headers: {
           'Authorization': authHeader.Authorization,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          // 'Content-Length':contentLength
         },
         uri: `${domain}/v1/domains/available?checkType=FAST`,
         body: JSON.stringify(array),
         method: 'POST'
-      }, function (error, response, body) {
+      }, function (error, res, body) {
         if (error)
           console.log(error);
-        let result = JSON.parse(body).domains.filter(function(itm){
-          return (itm.available)==true;
-        });
-        res.json({status:200,data:JSON.stringify(result)})
+          console.log("body=",body);
       });
 
     })

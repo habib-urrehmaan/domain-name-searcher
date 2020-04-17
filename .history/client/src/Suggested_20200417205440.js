@@ -13,22 +13,20 @@ class Suggested extends Component {
 
     componentWillMount()
     {
-        if (this.state.suggested.length<=0)
-        {
-            axios({
-                'method': 'GET',
-                'url': `/domain/suggested?domain=${this.props.domain}&limit=15`,
-                'ContentType':'application/json'
-            }).then((response)=>{
-                var arr = JSON.parse(response.data.data);
-                console.log("response=>",arr)
-                this.setState({
-                    suggested:arr
-                })
-            }).catch(error=>{
-                console.log(error);
-            });
-        }
+        axios({
+            'method': 'GET',
+            'url': `/domain/suggested?domain=${this.props.domain}&limit=10`,
+            'ContentType':'application/json'
+        }).then((response)=>{
+            
+            var arr = JSON.parse(response.data.data);
+            
+            this.setState({
+                suggested:arr.domains
+            })
+        }).catch(error=>{
+            console.log(error);
+        });
     }
 
     componentWillUnmount()

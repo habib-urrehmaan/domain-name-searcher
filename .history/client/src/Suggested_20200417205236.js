@@ -13,22 +13,20 @@ class Suggested extends Component {
 
     componentWillMount()
     {
-        if (this.state.suggested.length<=0)
-        {
-            axios({
-                'method': 'GET',
-                'url': `/domain/suggested?domain=${this.props.domain}&limit=15`,
-                'ContentType':'application/json'
-            }).then((response)=>{
-                var arr = JSON.parse(response.data.data);
-                console.log("response=>",arr)
-                this.setState({
-                    suggested:arr
-                })
-            }).catch(error=>{
-                console.log(error);
-            });
-        }
+        axios({
+            'method': 'GET',
+            'url': `/domain/suggested?domain=${this.props.domain}&limit=10`,
+            'ContentType':'application/json'
+        }).then((response)=>{
+            
+            var arr = JSON.parse(response.data.data);
+            
+            this.setState({
+                suggested:arr.domains
+            })
+        }).catch(error=>{
+            console.log(error);
+        });
     }
 
     componentWillUnmount()
@@ -48,12 +46,13 @@ class Suggested extends Component {
                     <thead>
                         <tr>
                             <th>Domain</th>
+                            <th>Availability</th>
                             <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
                     {this.state.suggested.map((element,index)=>(<tr key={index}><td>{element.domain}</td>
-                    <td>{(element.price)?element.currency+" "+element.price:("Not for sale")}</td></tr>))}
+                    <td>{element.available}</td><td>{element.currency+" "+element.price}</td></tr>))}
                     </tbody>
                 </table>
             </div>

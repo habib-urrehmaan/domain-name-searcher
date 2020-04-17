@@ -13,7 +13,7 @@ class Suggested extends Component {
 
     componentWillMount()
     {
-        if (this.state.suggested.length<=0)
+        if (this.state.length<=0)
         {
             axios({
                 'method': 'GET',

@@ -29,7 +29,7 @@ class Search extends Component {
             <div>
                 <div className="row">
                     <div className="col offset-s3">
-                        <h4>Find your favourite domain <b>NOW</b> !</h4>
+                        <h4>Find your favorite domain <b>NOW</b> !</h4>
                     </div>
                     <div className="input-field col s7 offset-s2">
                         <i className="material-icons prefix">search</i>

@@ -1,0 +1,15 @@
+.success{
+    color:green;
+    font-size: medium;
+}
+
+.error{
+    color:red;
+    font-size: medium;
+}
+
+.info
+{
+    color:yellowgreen;
+    font-size: medium;
+}

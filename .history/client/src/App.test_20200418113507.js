@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import App from './App';
-
 describe('App', () => {
   it('check call back fires', () => {
     let mockFn = jest.fn();

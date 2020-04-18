@@ -19,7 +19,7 @@ Note: App can be viewed live at https://domain-name-searcher.herokuapp.com/
   Heroku is a free, has lots of third party libraries those can be handy for implementing functionalities those are
   already built thus costing you less time to set up your deployment.
 
-### Improvements those could be made
+### Improvement that could have been made
   Could have used Redux to reduce the complexity of state management and to follow proper design patterns introduced in
   ReactJS.
 
